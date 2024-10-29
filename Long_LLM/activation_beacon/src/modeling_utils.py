@@ -257,7 +257,7 @@ def get_rope(head_dim, base, max_position_embeddings, rope_scaling=None):
             max_position_embeddings=max_position_embeddings,
         )
     else:
-        scaling_type = rope_scaling["type"]
+        scaling_type = rope_scaling["rope_type"] if "rope_type" in rope_scaling else rope_scaling["type"]
         scaling_factor = rope_scaling["factor"]
         if scaling_type == "linear":
             rope = LinearScalingRotaryEmbedding(
