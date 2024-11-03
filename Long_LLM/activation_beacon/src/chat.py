@@ -104,6 +104,12 @@ def apply_chat_template(template, messages, system_message=None, tokenizer:PreTr
             # the number of tokens to offset in the beginning of each turn, these tokens should be masked
             "turn_seq_left_offset": 0,
         },
+        "TinyLlama": {
+            "turn_sep": "</s>\n<|user|>\n",
+            "role_sep": "</s>\n<|assistant|>\n",
+            "begin_of_text_len": 0,
+            "turn_seq_left_offset": 1,
+        },
         'llama-2': {
             # separator for different conversation turns (one turn consists of an utterance from user and a response from assistant)
             "turn_sep": " </s><s>",
