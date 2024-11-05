@@ -155,7 +155,14 @@ def main():
 
             length = x.pop("length").tolist()
 
-            output = model.generate(**x)
+            output = model.generate(
+                **x,
+                max_new_tokens=50,
+                do_sample=False,
+                num_beams=1,
+                temperature=1.0,
+                top_p=1.0,
+            )
 
             if isinstance(output, torch.Tensor):
                 # 1, max_new_tokens
